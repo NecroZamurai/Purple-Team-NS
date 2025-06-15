@@ -1,0 +1,191 @@
+/* --- Variables y Estilos Globales --- */
+:root {
+    --dark-bg: #121218;
+    --primary-purple: #8A2BE2; /* Un morado vibrante como BlueViolet */
+    --accent-red: #E63946;
+    --accent-blue: #457B9D;
+    --light-text: #F1FAEE;
+    --dark-text: #E0E0E0;
+    --card-bg: #1E1E24;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+/* --- Estructura y Contenedores --- */
+.content-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* --- Encabezado y Hero --- */
+.hero {
+    background: linear-gradient(rgba(18, 18, 24, 0.85), rgba(18, 18, 24, 0.85)), url('https://images.unsplash.com/photo-1593435713509-a33560d2d86b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDEzfHxjeWJlcnNlY3VyaXR5JTIwYWJzdHJhY3R8ZW58MHx8fHwxNjU4MzA0NDE4&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    border-right: 3px solid var(--primary-purple);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 3.2s forwards;
+}
+
+/* --- Tipografía --- */
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.purple-text {
+    color: var(--primary-purple);
+}
+
+/* --- Tarjetas (Cards) de Filosofía --- */
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 260px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    padding: 15px;
+    color: var(--light-text);
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.card-body {
+    padding: 15px;
+    font-size: 0.95rem;
+    color: var(--dark-text);
+}
+
+.red-accent { background-color: var(--accent-red); }
+.blue-accent { background-color: var(--accent-blue); }
+.purple-accent { background-color: var(--primary-purple); }
+
+
+/* --- Botón de Llamada a la Acción (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-purple);
+    color: var(--light-text);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #7620c9;
+    transform: scale(1.05);
+}
+
+/* --- Pie de Página --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: var(--dark-text);
+}
+
+/* --- Animaciones --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-purple); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Responsividad para móviles --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content .subtitle {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+        max-width: 320px;
+    }
+}
