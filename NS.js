@@ -1,38 +1,35 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Efecto de Máquina de Escribir para el Título ---
-    const titleElement = document.getElementById('main-title');
-    if (titleElement) {
-        const text = "Purple Team";
-        // Limpiamos el texto para la animación
-        titleElement.innerHTML = ''; 
-        // No necesitamos el bucle de tipeo porque CSS se encarga de la animación 'typing'.
-        // Solo establecemos el texto final para que CSS pueda medir el 'width'.
-        titleElement.innerHTML = text;
-    }
+    // Selecciona todos los elementos que deben aparecer con la animación
+    const elementsToFadeIn = document.querySelectorAll('.fade-in-on-scroll');
 
-
-    // --- Animación de Fade-In al hacer Scroll ---
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-        threshold: 0.2, // El elemento se considera visible cuando el 20% está en pantalla
-        rootMargin: "0px 0px -50px 0px" // Empieza a cargar un poco antes de que llegue al viewport
+    // Configuración del Intersection Observer
+    // threshold: 0.1 significa que la animación se disparará cuando el 10% del elemento sea visible
+    const observerOptions = {
+        root: null, // Observa la intersección con el viewport
+        rootMargin: '0px',
+        threshold: 0.1
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    // La función que se ejecuta cuando un elemento observado entra o sale del viewport
+    const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            // Si el elemento está intersectando (es visible en pantalla)
+            if (entry.isIntersecting) {
+                // Añade la clase 'visible' para activar la transición CSS
                 entry.target.classList.add('visible');
-                appearOnScroll.unobserve(entry.target); // Dejar de observar el elemento una vez que es visible
+                // Deja de observar este elemento para que la animación no se repita
+                observer.unobserve(entry.target);
             }
         });
-    }, appearOptions);
+    };
 
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+    // Crea la instancia del observer
+    const fadeInObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Itera sobre cada elemento y le dice al observer que lo vigile
+    elementsToFadeIn.forEach(element => {
+        fadeInObserver.observe(element);
     });
 
 });
