@@ -3,72 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purple Team | NecroSamurai/title>
-    <link rel="stylesheet" href="style.css">
+    <title>NS | Cybersecurity Log</title>
+    
+    <link rel="stylesheet" href="NS.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1 id="main-title"></h1>
-            <p class="subtitle">Texto por Cambiar</p>
+    <header class="main-header">
+        <div class="container">
+            <h1>NS Cybersecurity Log</h1>
+            <p class="subtitle">Un blog sobre resolución de CTFs, proyectos y ciberseguridad.</p>
         </div>
     </header>
 
-    <main>
-        <section id="about" class="content-section">
-            <h2>¿Qué es un <span class="purple-text">Purple Team</span>?</h2>
-            <p>
-                Un Purple Team es la sinergia entre el Red Team (el equipo ofensivo que simula ataques) y el Blue Team (el equipo defensivo que protege, monitorea y responde). No somos un equipo separado, sino una filosofía de colaboración para medir y mejorar continuamente la postura de seguridad de una organización.
-            </p>
+    <nav class="main-nav">
+        <div class="container">
+            <a href="#posts">Artículos</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#about">Sobre Mí</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="posts">
+            <h2>Últimos Artículos</h2>
+
+            <article class="blog-post fade-in-on-scroll">
+                <h3 class="post-title">
+                    Resolución del CTF: "Nombre del Reto"
+                </h3>
+                <div class="post-meta">
+                    <span class="meta-date">15 de Junio, 2025</span>
+                    <span class="meta-tags">
+                        <span class="tag tag-web">Web</span>
+                        <span class="tag tag-crypto">Crypto</span>
+                    </span>
+                </div>
+                <div class="post-content">
+                    <p>
+                        Este es el resumen o introducción de mi write-up. Aquí explico brevemente el desafío y el enfoque general que tomé para resolverlo. La vulnerabilidad principal era un...
+                    </p>
+                    <pre><code>&lt;!-- Aquí puedes poner bloques de código --&gt;
+function vulnerable(userInput) {
+  // ... código de ejemplo
+}</code></pre>
+                    <p>
+                        Puedes seguir añadiendo más párrafos y bloques de código según necesites para explicar la solución completa.
+                    </p>
+                    </div>
+            </article>
+            <article class="blog-post fade-in-on-scroll">
+                <h3 class="post-title">Mi Primer Script de Automatización con Python</h3>
+                <div class="post-meta">
+                    <span class="meta-date">10 de Junio, 2025</span>
+                    <span class="meta-tags">
+                        <span class="tag tag-scripting">Scripting</span>
+                        <span class="tag tag-python">Python</span>
+                    </span>
+                </div>
+                <div class="post-content">
+                    <p>
+                        En este post, detallo cómo construí un script para automatizar el reconocimiento de subdominios. Usé herramientas como...
+                    </p>
+                </div>
+            </article>
+
         </section>
 
-        <section id="philosophy" class="content-section">
-            <h2>Nuestra Filosofía</h2>
-            <div class="cards-container">
-                <div class="card fade-in">
-                    <div class="card-header red-accent">
-                        <h3>Atacar</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Emulamos tácticas, técnicas y procedimientos (TTPs) de adversarios reales para identificar vulnerabilidades y brechas en las defensas existentes de manera controlada y segura.</p>
+        <section id="projects">
+            <h2>Proyectos Personales</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card fade-in-on-scroll">
+                    <h3 class="project-title">
+                        Analizador de Malware Básico
+                    </h3>
+                    <p class="project-description">
+                        Una herramienta en C++ para realizar análisis estático de archivos PE, extrayendo información de cabeceras, imports y strings sospechosas.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">GitHub</a>
+                        </div>
+                </div>
+                <div class="project-card fade-in-on-scroll">
+                    <h3 class="project-title">Dashboard de Seguridad</h3>
+                    <p class="project-description">
+                        Un dashboard web hecho con Flask y Chart.js para visualizar logs de seguridad de diferentes fuentes en tiempo real.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">GitHub</a>
                     </div>
                 </div>
 
-                <div class="card fade-in">
-                    <div class="card-header blue-accent">
-                        <h3>Defender</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Trabajamos codo a codo con el equipo de defensa para analizar los resultados de los ataques, ajustar controles, mejorar la detección y optimizar la respuesta a incidentes.</p>
-                    </div>
-                </div>
-
-                <div class="card fade-in">
-                    <div class="card-header purple-accent">
-                        <h3>Mejorar</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>El objetivo final es crear un ciclo de retroalimentación constante. Cada ataque simulado se convierte en una lección aprendida que fortalece tangiblemente la defensa.</p>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <section id="contact" class="content-section">
-            <h2>Contacto</h2>
-            <p>¿Listo para llevar tu seguridad al siguiente nivel? Contáctanos.</p>
-            <a href="mailto:contacto@tuempresa.com" class="cta-button">Hablemos</a>
+        <section id="about">
+            <h2>Sobre Mí</h2>
+            <p>
+                Soy un entusiasta de la ciberseguridad apasionado por los retos CTF, el desarrollo de herramientas y la investigación de vulnerabilidades. Este blog es mi cuaderno de bitácora digital.
+            </p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Tu Nombre o Empresa. Todos los derechos reservados.</p>
+        <div class="container">
+            <p>&copy; 2025 Tu Nombre. Hecho con ❤️ y código.</p>
+            </div>
     </footer>
 
-    <script src="ns.js"></script>
+    <script src="NS.js"></script>
 </body>
 </html>
